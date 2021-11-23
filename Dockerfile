@@ -1,7 +1,7 @@
 FROM ubuntu
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install nginx
-RUN service nginx start
+RUN apt-get -y install apache2
 ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
 ENV name Intellipaat
